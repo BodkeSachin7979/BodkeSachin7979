@@ -1,16 +1,195 @@
-## Hi there 👋
+# 🚀 Data Analyst Portfolio | Sachin Bodke
 
-<!--
-**BodkeSachin7979/BodkeSachin7979** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<div align="center">
 
-Here are some ideas to get you started:
+![GitHub Header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Sachin%20Bodke&fontSize=60&fontAlignY=35&animation=fadeIn)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+**Data Analyst | Python Developer | SQL Specialist | Power BI Expert**
+
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://bodkesachin7979.github.io/Sachin_Portfolio/)
+[![LinkedIn](https://img.shields.io/badge/💼_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sachinbodke/)
+[![Email](https://img.shields.io/badge/📧_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sachinbodke7979@gmail.com)
+[![GitHub](https://img.shields.io/badge/💻_GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BodkeSachin7979)
+
+</div>
+
+## 📊 Professional Summary
+
+> *Transforming raw data into actionable insights through advanced analytics, visualization, and automation*
+
+Data Analyst skilled in **SQL, Python (Pandas), Power BI, and EDA**, with proven ability to turn complex datasets into clear insights, interactive dashboards, and automated workflows. Experienced in data cleaning, visualization, SQL optimization, reporting, and building Flask-based data applications. Strong blend of analytics and backend development skills enabling end-to-end solutions from analysis to deployment.
+
+---
+
+## 🛠 Technical Stack
+
+### **Data Analysis & Visualization**
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+### **Databases & SQL**
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+
+### **Business Intelligence**
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)
+
+### **Development & Tools**
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![REST API](https://img.shields.io/badge/REST_API-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+---
+
+## 🎯 Featured Projects
+
+### 📊 **Netflix Data Analysis** | SQL Analytics
+*Comprehensive analytical case study using advanced SQL techniques*
+```sql
+-- Example: Advanced window functions and CTEs
+WITH ranked_content AS (
+    SELECT 
+        title,
+        type,
+        release_year,
+        RANK() OVER (PARTITION BY type ORDER BY release_year DESC) as recency_rank
+    FROM netflix_titles
+)
+SELECT * FROM ranked_content WHERE recency_rank <= 5;
+```
+**🔧 Technologies:** PostgreSQL, Window Functions, CTEs, String Parsing  
+**📈 Insights:** Content trends, release patterns, genre analysis
+
+---
+
+### 📈 **Sales Analytics Dashboard** | Power BI
+*Interactive sales reporting with comprehensive business metrics*
+- **DAX Measures & KPIs**: Revenue growth, YoY comparison, regional performance
+- **Interactive Features**: Drill-down capabilities, slicers, filters
+- **Visual Analytics**: Geographic mapping, trend analysis, performance indicators
+
+**🛠 Tools:** Power BI, DAX, Data Modeling  
+**📊 Output:** Executive dashboards, sales performance reports
+
+---
+
+### 🔍 **Retail Customer EDA** | Python Pandas
+*Comprehensive exploratory data analysis for customer segmentation*
+```python
+# Customer segmentation analysis
+customer_segments = df.groupby('segment').agg({
+    'purchase_amount': ['mean', 'count', 'sum'],
+    'frequency': 'mean'
+}).round(2)
+```
+**📋 Analysis:** Data cleaning, outlier detection, behavioral patterns  
+**🔬 Techniques:** Statistical analysis, clustering, correlation studies
+
+---
+
+## 🧪 Development Projects
+
+### 🤖 **Face Recognition System**
+- Real-time face detection and recognition
+- FaceNet model implementation
+- Live video processing capabilities
+
+### 🏥 **Liver Cancer Prediction App**
+- Machine learning classification model
+- Flask web application deployment
+- Medical data processing and analysis
+
+### 🗺 **Tourister Guide**
+- Google Maps API integration
+- Location-based services
+- Interactive travel planning
+
+---
+
+## 📈 GitHub Analytics
+
+<div align="center">
+
+### 🏆 Achievement Trophies
+![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=BodkeSachin7979&theme=radical&no-frame=true&column=6&margin-w=15&margin-h=15)
+
+### 📊 Activity Metrics
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=BodkeSachin7979&show_icons=true&theme=radical&hide_border=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=BodkeSachin7979&layout=compact&theme=radical&hide_border=true)
+
+### 🔄 Contribution Graph
+![Contribution Graph](https://github-readme-activity-graph.vercel.app/graph?username=BodkeSachin7979&theme=react-dark&hide_border=true&area=true)
+
+### 🐍 Contribution Snake
+![](https://github.com/BodkeSachin7979/BodkeSachin7979/blob/output/github-contribution-grid-snake.svg)
+
+</div>
+
+---
+
+## 🎯 Current Focus Areas
+
+<div align="center">
+
+| Domain | Skills in Progress |
+|--------|-------------------|
+| **📊 Advanced SQL** | Window Functions, Query Optimization, Performance Tuning |
+| **📈 Power BI** | Advanced DAX, Dashboard Design, Data Modeling |
+| **🤖 Python Automation** | Scripting, Workflow Automation, ETL Pipelines |
+| **🌐 Flask APIs** | RESTful Services, Data Applications, Deployment |
+
+</div>
+
+## 📋 Repository Structure
+```
+BodkeSachin7979/
+│
+├── 📊 Data-Analytics/
+│   ├── Netflix-Data-Analysis-Project
+│   ├── Sales-Data-Analysis-Power-BI
+│   └── Customer-Shopping-Trends-Analysis
+│
+├── 🤖 Machine-Learning/
+│   ├── Face-Recognition-Attendance-System
+│   └── Liver-Cancer-Prediction
+│
+├── 🌐 Web-Applications/
+│   ├── Tourister-Guide
+│   └── Sachin_Portfolio
+│
+├── 📚 Learning-Practice/
+│   ├── SQL-Practice
+│   └── Python-Programming
+│
+└── 🔧 Utilities-Templates/
+    ├── (Future: Data processing templates)
+    └── (Future: Analysis boilerplates)
+```
+---
+## 📬 Let's Connect
+
+<div align="center">
+
+[![Portfolio](https://img.shields.io/badge/🌐_Visit_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white&labelColor=000000)](https://bodkesachin7979.github.io/Sachin_Portfolio/)
+[![LinkedIn](https://img.shields.io/badge/💼_Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5)](https://www.linkedin.com/in/sachinbodke/)
+[![Email](https://img.shields.io/badge/📧_sachinbodke7979@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=D14836)](mailto:sachinbodke7979@gmail.com)
+[![GitHub](https://img.shields.io/badge/💻_Follow_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=181717)](https://github.com/BodkeSachin7979)
+</div>
+
+<div align="center">
+
+### ⚡ **Turning Data into Decisions** ⚡
+
+*"In God we trust, all others must bring data" - W. Edwards Deming*
+
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer)
+
+</div>
+
+---
