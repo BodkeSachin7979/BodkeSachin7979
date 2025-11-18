@@ -186,8 +186,6 @@ BodkeSachin7979/
 
 ### ⚡ **Turning Data into Decisions** ⚡
 
-*"In God we trust, all others must bring data" - W. Edwards Deming*
-
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer)
 
 </div>
