@@ -8,7 +8,7 @@
 
 [![Portfolio](https://img.shields.io/badge/🌐_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://bodkesachin7979.github.io/BodkeSachin7979/)
 [![LinkedIn](https://img.shields.io/badge/💼_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sachinbodke/)
-[![Email](https://img.shields.io/badge/📧_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sachinbodke7979@gmail.com)
+[![Email](https://img.shields.io/badge/📧_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sachinbodke.dev@gmail.com)
 [![GitHub](https://img.shields.io/badge/💻_GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BodkeSachin7979)
 
 </div>
@@ -182,9 +182,9 @@ BodkeSachin7979/
 
 <div align="center">
 
-[![Portfolio](https://img.shields.io/badge/🌐_Visit_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white&labelColor=000000)](https://bodkesachin7979.github.io/Sachin_Portfolio/)
+[![Portfolio](https://img.shields.io/badge/🌐_Visit_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white&labelColor=000000)](https://bodkesachin7979.github.io/BodkeSachin7979/)
 [![LinkedIn](https://img.shields.io/badge/💼_Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5)](https://www.linkedin.com/in/sachinbodke/)
-[![Email](https://img.shields.io/badge/📧_sachinbodke7979@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=D14836)](mailto:sachinbodke7979@gmail.com)
+[![Email](https://img.shields.io/badge/📧_sachinbodke.dev@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=D14836)](mailto:sachinbodke7979@gmail.com)
 [![GitHub](https://img.shields.io/badge/💻_Follow_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=181717)](https://github.com/BodkeSachin7979)
 </div>
 
