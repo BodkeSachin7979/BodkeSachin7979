@@ -54,7 +54,37 @@ Detail-driven Data Analyst with foundational skills in SQL, Python (Pandas), Pow
 
 ## 🎯 Featured Projects
 
-### 📊 **Netflix Data Analysis** | SQL Analytics
+# Retail Sales Analysis - SQL Project
+
+SQL analysis of retail sales data to uncover business insights and customer patterns.
+
+## 📊 Analysis Focus
+- Sales performance by category
+- Customer demographics & behavior  
+- High-value transactions
+- Time-based sales trends
+
+## 🛠️ SQL Skills
+- Data cleaning & validation
+- Aggregations & groupings
+- Window functions
+- Time series analysis
+
+## 📈 Key Insights
+- Best-selling categories & months
+- Top 5 customers by spending
+- Gender-based shopping patterns
+- Peak sales periods
+
+## 📁 Files
+- Database schema setup
+- Data cleaning queries
+- Business analysis queries
+- Insights summary
+
+Practical SQL project demonstrating business intelligence from sales data.
+
+# 📊 **Netflix Data Analysis** | SQL Analytics
 *Comprehensive analytical case study using advanced SQL techniques*
 ```sql
 -- Example: Advanced window functions and CTEs
@@ -70,32 +100,6 @@ SELECT * FROM ranked_content WHERE recency_rank <= 5;
 ```
 **🔧 Technologies:** PostgreSQL, Window Functions, CTEs, String Parsing  
 **📈 Insights:** Content trends, release patterns, genre analysis
-
----
-
-### 📈 **Sales Analytics Dashboard** | Power BI
-*Interactive sales reporting with comprehensive business metrics*
-- **DAX Measures & KPIs**: Revenue growth, YoY comparison, regional performance
-- **Interactive Features**: Drill-down capabilities, slicers, filters
-- **Visual Analytics**: Geographic mapping, trend analysis, performance indicators
-
-**🛠 Tools:** Power BI, DAX, Data Modeling  
-**📊 Output:** Executive dashboards, sales performance reports
-
----
-
-### 🔍 **Retail Customer EDA** | Python Pandas
-*Comprehensive exploratory data analysis for customer segmentation*
-```python
-# Customer segmentation analysis
-customer_segments = df.groupby('segment').agg({
-    'purchase_amount': ['mean', 'count', 'sum'],
-    'frequency': 'mean'
-}).round(2)
-```
-**📋 Analysis:** Data cleaning, outlier detection, behavioral patterns  
-**🔬 Techniques:** Statistical analysis, clustering, correlation studies
-
 ---
 
 ## 🧪 Development Projects
