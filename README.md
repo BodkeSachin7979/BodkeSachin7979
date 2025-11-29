@@ -1,4 +1,4 @@
-# 🚀 Data Analyst Portfolio | Sachin Bodke
+# 🚀 Data Analyst Portfolio 
 
 <div align="center">
 
@@ -29,7 +29,6 @@ Detail-driven Data Analyst with foundational skills in SQL, Python (Pandas), Pow
 [![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white)](https://matplotlib.org/)
 [![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://seaborn.pydata.org/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
-[![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)](https://plotly.com/)
 
 ### **Machine Learning & Statistics**
 [![Scikit-Learn](https://img.shields.io/badge/Scikit_Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
