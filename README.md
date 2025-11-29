@@ -82,28 +82,37 @@ SQL analysis of retail sales data to uncover business insights and customer patt
 - Business analysis queries
 - Insights summary
 
-Practical SQL project demonstrating business intelligence from sales data.
 
-# 📊 **Netflix Data Analysis** | SQL Analytics
-*Comprehensive analytical case study using advanced SQL techniques*
-```sql
--- Example: Advanced window functions and CTEs
-WITH ranked_content AS (
-    SELECT 
-        title,
-        type,
-        release_year,
-        RANK() OVER (PARTITION BY type ORDER BY release_year DESC) as recency_rank
-    FROM netflix_titles
-)
-SELECT * FROM ranked_content WHERE recency_rank <= 5;
-```
-**🔧 Technologies:** PostgreSQL, Window Functions, CTEs, String Parsing  
-**📈 Insights:** Content trends, release patterns, genre analysis
 ---
+# 🎯Library Management System - SQL
 
-## 🧪 Development Projects
+A complete database solution for library operations built with PostgreSQL.
 
+## Database Schema
+- 6 normalized tables with proper relationships
+- Handles books, members, employees, and transactions
+- Supports CRUD operations and complex queries
+
+## Key Features
+- Book issuing/returning with availability checks
+- Member management and tracking
+- Rental income analysis
+- Automated procedures for common tasks
+
+## Technical Skills
+- Database design and normalization
+- Complex SQL queries with joins
+- Stored procedures and functions
+- Data aggregation and reporting
+
+## Project Files
+- Database schema setup
+- Sample data and queries
+- Stored procedures
+- Analysis reports
+  
+---
+# 🧪 Development Projects
 ### 🤖 **Face Recognition System**
 - Real-time face detection and recognition
 - FaceNet model implementation
