@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodke Sachin | Data Analyst & Full Stack Developer</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <i class="fas fa-code logo-icon"></i>
+        Bodke Sachin
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#work" class="nav-link">Projects</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="floating-code" id="floatingCode"></div>
+    <div class="particles" id="particles"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Data Analyst & Full Stack Developer</h1>
+        <p class="hero-subtitle">
+          I transform complex data into actionable insights and build robust
+          <span class="hero-highlight">Python</span> applications with
+          <span class="hero-highlight">Machine Learning</span> capabilities.
+        </p>
+        <div class="hero-btns">
+          <a href="#work" class="btn btn-primary">
+            <i class="fas fa-rocket"></i>
+            VIEW MY PROJECTS
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i>
+            CONTACT ME
+          </a>
+          <a href="resume/Data_Analyst.pdf" class="btn btn-outline" download="Bodke_Sachin_Resume.pdf">
+            <i class="fas fa-download"></i>
+            DOWNLOAD RESUME
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="work">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      <p class="section-subtitle">
+        Explore my work across data analysis, full-stack development, and
+        machine learning.
+      </p>
+
+      <div class="projects-categories">
+        <button class="category-btn active" data-category="all">
+          All Projects
+        </button>
+        <button class="category-btn" data-category="data-analysis">
+          Data Analysis
+        </button>
+        <button class="category-btn" data-category="python-fullstack">
+          Python Full Stack
+        </button>
+        <button class="category-btn" data-category="machine-learning">
+          Machine Learning
+        </button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Data Analysis Projects -->
+        <div class="project-card fade-in" data-category="data-analysis">
+          <div class="project-image data-analysis1">
+            <div class="project-category">Data Analysis</div>
+          </div>
+
+          <div class="project-content">
+            <h3 class="project-title">Customer Shopping Behavior Analytics</h3>
+            <p class="project-description">
+              Processed 3,900+ transactions, fixed missing data, and achieved 99.5% completeness.
+              Segmented customers using SQL CTEs and conditional logic, built a multi-page Power BI dashboard,
+              and analyzed revenue, discounts, seasonal trends, and LTV. Delivered insights projecting
+              higher retention, margin gains, and reduced inventory cost.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Power BI</span>
+            </div>
+
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/BodkeSachin7979/SQL_DATA_ANALYSIS/tree/master/customer_trends_data_analaysis"
+                class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+              <a href="PPT_DOC/Customer-Shopping-Behavior-Analysis.pptx" class="project-link">
+                <i class="fas fa-file-alt"></i>
+                Presentation
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="data-analysis">
+          <div class="project-image data-analysis2">
+            <div class="project-category">Data Analysis</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Retail Sales Analysis (SQL)</h3>
+            <p class="project-description">
+              Built and analyzed a 10K+ retail sales database using PostgreSQL.
+              Performed data cleaning, exploratory analysis, category performance study,
+              customer behavior segmentation, and monthly trend analysis.
+              Developed BI-ready SQL scripts for revenue, category ranking, top customers,
+              and time-shift sales insights.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Data Analysis</span>
+              <span class="tech-tag">EDA</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/BodkeSachin7979/SQL_DATA_ANALYSIS/tree/master/1Retail_sales_analysis"
+                class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+              <a href="PPT_DOC/Retail-Sales-Analysis.pptx" class="project-link">
+                <i class="fas fa-file-alt"></i>
+                Presentation
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="data-analysis">
+          <div class="project-image data-analysis3">
+            <div class="project-category">Data Analysis</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Library Management System (SQL)</h3>
+            <p class="project-description">
+              Designed a complete library database with normalized schema, CRUD workflows, 
+              CTAS reporting tables, and PL/pgSQL stored procedures. Implemented issuing, 
+              returning, availability checks, branch-level reporting, and rental revenue 
+              analysis using advanced SQL queries.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Database Design</span>
+              <span class="tech-tag">python</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/BodkeSachin7979/SQL_DATA_ANALYSIS/tree/master/3Library_management"
+                class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+              <a href="PPT_DOC/Library-Management-System.pptx" class="project-link">
+                <i class="fas fa-file-alt"></i>
+                Presentation
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Python Full Stack Projects -->
+        <div class="project-card fade-in" data-category="python-fullstack">
+          <div class="project-image python-fullstack1">
+            <div class="project-category">Python Full Stack</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">LCS GAN</h3>
+            <p class="project-description">
+              This project also includes a liver cancer detection module
+              powered by a GAN (Generative Adversarial Network) model. The GAN
+              is trained to analyze medical imaging data and accurately
+              identify cancerous regions, providing an innovative AI-driven
+              solution for early diagnosis and improved patient outcomes.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">GAN</span>
+              <span class="tech-tag">RestNet</span>
+              <span class="tech-tag">CNN</span>
+              <span class="tech-tag">Keras</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/BodkeSachin7979/LCS_GAN" class="project-link" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/BodkeSachin7979/LCS_GAN" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="python-fullstack">
+          <div class="project-image python-fullstack2">
+            <div class="project-category">Python Full Stack</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Tourister Guide Website</h3>
+            <p class="project-description">
+              A web application for travelers to find and book tours, with
+              user authentication and payment integration. Features include
+              real-time notifications, and comprehensive documentation.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Bootstrap</span>
+            </div>
+            <div class="project-links">
+              <a href="https://packyourbags-02mw.onrender.com/" class="project-link" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/BodkeSachin7979/Pack_your_Bags" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Machine Learning Projects -->
+        <div class="project-card fade-in" data-category="machine-learning">
+          <div class="project-image machine-learning1">
+            <div class="project-category">Machine Learning</div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">GateAi</h3>
+            <p class="project-description">
+              Face authentication system using deep learning for secure and
+              seamless user verification, enabling fast and accurate identity
+              recognition in real-time applications.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Deep Learning</span>
+              <span class="tech-tag">CNN</span>
+              <span class="tech-tag">Computer Vision</span>
+              <span class="tech-tag">tailwindcss</span>
+              <span class="tech-tag">SQLAlchemy</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/BodkeSachin7979/GateAi" class="project-link" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        My journey in data and development, and the skills I've acquired along
+        the way.
+      </p>
+
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <p>
+            I'm a passionate Data Analyst and Full Stack Developer with
+            expertise in transforming complex data into actionable insights
+            and building robust applications. My journey began with a
+            fascination for data patterns during my statistics degree, which
+            evolved into a passion for creating data-driven solutions.
+          </p>
+          <p class="my-4">
+            I specialize in Python development, with extensive experience in
+            data analysis libraries (Pandas, NumPy), machine learning
+            frameworks (Scikit-learn, TensorFlow), and full-stack development
+            with Django and FastAPI. I believe in creating solutions that are
+            not only functional but also scalable and maintainable.
+          </p>
+          <p>
+            When I'm not coding or analyzing data, you can find me
+            contributing to open-source projects, writing technical blogs, or
+            exploring new machine learning techniques. I'm always eager to
+            take on challenging projects that push the boundaries of what's
+            possible with data and technology.
+          </p>
+
+          <!-- GitHub Stats -->
+          <div class="github-stats">
+            <div class="stat-card fade-in">
+              <div class="stat-number" id="repoCount">10+</div>
+              <div class="stat-label">GitHub Repositories</div>
+            </div>
+            <div class="stat-card fade-in">
+              <div class="stat-number" id="projectCount">53+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-card fade-in">
+              <div class="stat-number" id="experienceYears">2+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-container fade-in">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Python & Data Analysis</span>
+              <span class="skill-percentage">75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="75"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Machine Learning</span>
+              <span class="skill-percentage">62%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="60"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Web Development (Django/FastAPI)</span>
+              <span class="skill-percentage">60%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="60"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">SQL & Database Design</span>
+              <span class="skill-percentage">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="90"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Data Visualization</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">
+        Interested in collaborating? Feel free to reach out for data projects
+        or development work!
+      </p>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item fade-in">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p>sachinbodke.dev@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item fade-in">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h3>Phone</h3>
+              <p>+91-7757921898</p>
+            </div>
+          </div>
+
+          <div class="contact-item fade-in">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h3>Location</h3>
+              <p>India , Maharashtra , Nanded , 431715</p>
+            </div>
+          </div>
+
+          <div class="contact-item fade-in">
+            <div class="contact-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <div>
+              <h3>GitHub</h3>
+              <a href="https://github.com/BodkeSachin7979" target="_blank">github.com/BodkeSachin7979</a>
+            </div>
+          </div>
+
+          <div class="contact-item fade-in">
+            <div class="contact-icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div>
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/sachinbodke432/" target="_blank">linkedin.com/in/sachinbodke432</a>
+            </div>
+          </div>
+
+          <div class="contact-item fade-in">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="m15.42 16.94-2.25 2.17a2.1 2.1 0 0 1-1.52.56 2.1 2.1 0 0 1-1.52-.56l-3.61-3.63a2.18 2.18 0 0 1-.58-1.55 2.07 2.07 0 0 1 .58-1.52l3.6-3.65a2.1 2.1 0 0 1 1.53-.54 2.08 2.08 0 0 1 1.52.55l2.25 2.17A1.14 1.14 0 0 0 17 9.33l-2.17-2.2a4.24 4.24 0 0 0-2-1.12l2.06-2.08a1.15 1.15 0 0 0-1.62-1.62l-8.43 8.42a4.48 4.48 0 0 0-1.24 3.2 4.57 4.57 0 0 0 1.24 3.23l3.63 3.63A4.38 4.38 0 0 0 11.66 22a4.45 4.45 0 0 0 3.2-1.25L17 18.56a1.14 1.14 0 0 0-1.61-1.62z">
+                </path>
+                <path d="M19.34 12.84h-8.45a1.12 1.12 0 0 0 0 2.24h8.45a1.12 1.12 0 0 0 0-2.24"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Leetcode</h3>
+              <a href="https://leetcode.com/u/bodkesachin7979/" target="_blank">leetcode.com/u/bodkesachin7979</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form fade-in">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" name="from_name" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="from_email" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-textarea" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© Bodke Sachin 2024</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/sachinbodke432/" class="social-link" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/BodkeSachin7979" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-kaggle"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="index.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</body>
+
+</html>
