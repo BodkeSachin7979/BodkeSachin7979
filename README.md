@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# 🚀 Data Analyst Portfolio | Sachin Bodke
-=======
 # 🚀 Data Analyst Portfolio 
->>>>>>> 794204e7c9647a154139e03f0ab3ae43805b8e5b
 
 <div align="center">
 
@@ -10,15 +6,10 @@
 
 **Data Analyst | Python Developer | SQL Specialist | Power BI Expert**
 
-<<<<<<< HEAD
+
 [![Portfolio](https://img.shields.io/badge/🌐_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://bodkesachin7979.github.io/Sachin_Portfolio/)
 [![LinkedIn](https://img.shields.io/badge/💼_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sachinbodke/)
 [![Email](https://img.shields.io/badge/📧_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sachinbodke7979@gmail.com)
-=======
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://bodkesachin7979.github.io/BodkeSachin7979/)
-[![LinkedIn](https://img.shields.io/badge/💼_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sachinbodke/)
-[![Email](https://img.shields.io/badge/📧_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:sachinbodke.dev@gmail.com)
->>>>>>> 794204e7c9647a154139e03f0ab3ae43805b8e5b
 [![GitHub](https://img.shields.io/badge/💻_GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BodkeSachin7979)
 
 </div>
@@ -39,10 +30,6 @@ Detail-driven Data Analyst with foundational skills in SQL, Python (Pandas), Pow
 [![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white)](https://matplotlib.org/)
 [![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://seaborn.pydata.org/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
-<<<<<<< HEAD
-[![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)](https://plotly.com/)
-=======
->>>>>>> 794204e7c9647a154139e03f0ab3ae43805b8e5b
 
 ### **Machine Learning & Statistics**
 [![Scikit-Learn](https://img.shields.io/badge/Scikit_Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
@@ -68,7 +55,6 @@ Detail-driven Data Analyst with foundational skills in SQL, Python (Pandas), Pow
 
 ## 🎯 Featured Projects
 
-<<<<<<< HEAD
 ### 📊 **Netflix Data Analysis** | SQL Analytics
 *Comprehensive analytical case study using advanced SQL techniques*
 ```sql
@@ -115,7 +101,6 @@ customer_segments = df.groupby('segment').agg({
 
 ## 🧪 Development Projects
 
-=======
 # Retail Sales Analysis - SQL Project
 
 SQL analysis of retail sales data to uncover business insights and customer patterns.
@@ -175,7 +160,6 @@ A complete database solution for library operations built with PostgreSQL.
   
 ---
 # 🧪 Development Projects
->>>>>>> 794204e7c9647a154139e03f0ab3ae43805b8e5b
 ### 🤖 **Face Recognition System**
 - Real-time face detection and recognition
 - FaceNet model implementation
@@ -257,15 +241,9 @@ BodkeSachin7979/
 
 <div align="center">
 
-<<<<<<< HEAD
-[![Portfolio](https://img.shields.io/badge/🌐_Visit_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white&labelColor=000000)](https://bodkesachin7979.github.io/Sachin_Portfolio/)
-[![LinkedIn](https://img.shields.io/badge/💼_Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5)](https://www.linkedin.com/in/sachinbodke/)
-[![Email](https://img.shields.io/badge/📧_sachinbodke7979@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=D14836)](mailto:sachinbodke7979@gmail.com)
-=======
 [![Portfolio](https://img.shields.io/badge/🌐_Visit_Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white&labelColor=000000)](https://bodkesachin7979.github.io/BodkeSachin7979/)
 [![LinkedIn](https://img.shields.io/badge/💼_Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0077B5)](https://www.linkedin.com/in/sachinbodke/)
 [![Email](https://img.shields.io/badge/📧_sachinbodke.dev@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=D14836)](mailto:sachinbodke7979@gmail.com)
->>>>>>> 794204e7c9647a154139e03f0ab3ae43805b8e5b
 [![GitHub](https://img.shields.io/badge/💻_Follow_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=181717)](https://github.com/BodkeSachin7979)
 </div>
 
