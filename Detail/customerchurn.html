@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Behavior Analysis | Project Details</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --github-bg: #0d1117;
+        --github-card: #161b22;
+        --github-border: #30363d;
+        --github-text: #c9d1d9;
+        --github-accent: #58a6ff;
+        --github-green: #238636;
+        --github-orange: #f78166;
+        --github-purple: #bc8cff;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--github-bg);
+        color: var(--github-text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        min-height: 100vh;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        animation: slideIn 0.6s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* HEADER */
+      .project-header {
+        background: var(--github-card);
+        border: 1px solid var(--github-border);
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 24px;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-header:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          var(--github-accent),
+          var(--github-purple)
+        );
+      }
+
+      .project-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: var(--github-text);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .project-title i {
+        color: var(--github-accent);
+      }
+
+      .project-description {
+        color: #8b949e;
+        margin-bottom: 20px;
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+
+      .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 24px;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        color: #8b949e;
+        padding: 6px 12px;
+        background: rgba(88, 166, 255, 0.08);
+        border-radius: 6px;
+        border: 1px solid rgba(88, 166, 255, 0.2);
+        transition: all 0.2s ease;
+      }
+
+      .meta-item:hover {
+        background: rgba(88, 166, 255, 0.15);
+        transform: scale(1.05);
+      }
+
+      /* DATA CARDS */
+      .data-section {
+        background: var(--github-card);
+        border: 1px solid var(--github-border);
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 24px;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
+      }
+
+      .data-section:hover {
+        border-color: var(--github-accent);
+        box-shadow: 0 8px 25px rgba(88, 166, 255, 0.1);
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 24px;
+        color: var(--github-text);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--github-border);
+      }
+
+      .data-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 24px;
+      }
+
+      .data-card {
+        background: rgba(22, 27, 34, 0.7);
+        border: 1px solid var(--github-border);
+        border-radius: 8px;
+        padding: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .data-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--github-accent);
+        box-shadow: 0 10px 20px rgba(88, 166, 255, 0.1);
+      }
+
+      .data-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--github-accent),
+          var(--github-purple)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .data-card:hover::after {
+        transform: scaleX(1);
+      }
+
+      .data-label {
+        font-size: 0.9rem;
+        color: #8b949e;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .data-value {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--github-text);
+      }
+
+      .data-detail {
+        font-size: 0.85rem;
+        color: #8b949e;
+        margin-top: 8px;
+      }
+
+      /* FINDINGS */
+      .finding-card {
+        background: rgba(22, 27, 34, 0.7);
+        border: 1px solid var(--github-border);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 16px;
+        transition: all 0.3s ease;
+        border-left: 4px solid transparent;
+      }
+
+      .finding-card:hover {
+        transform: translateX(5px);
+        border-color: var(--github-border);
+        background: rgba(35, 134, 54, 0.05);
+      }
+
+      .finding-card:nth-child(1):hover {
+        border-left-color: var(--github-accent);
+      }
+
+      .finding-card:nth-child(2):hover {
+        border-left-color: var(--github-green);
+      }
+
+      .finding-card:nth-child(3):hover {
+        border-left-color: var(--github-orange);
+      }
+
+      .finding-title {
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: var(--github-text);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .finding-detail {
+        font-size: 0.95rem;
+        color: #8b949e;
+        margin-bottom: 12px;
+        line-height: 1.6;
+      }
+
+      .finding-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .metric-badge {
+        background: rgba(88, 166, 255, 0.1);
+        border: 1px solid rgba(88, 166, 255, 0.3);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: var(--github-accent);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s ease;
+      }
+
+      .metric-badge:hover {
+        background: rgba(88, 166, 255, 0.2);
+        transform: scale(1.05);
+      }
+
+      /* METHODOLOGY */
+      .method-list {
+        list-style: none;
+      }
+
+      .method-item {
+        padding: 16px;
+        border-bottom: 1px solid var(--github-border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .method-item:hover {
+        background: rgba(88, 166, 255, 0.05);
+        padding-left: 20px;
+      }
+
+      .method-item:last-child {
+        border-bottom: none;
+      }
+
+      .method-step {
+        background: var(--github-accent);
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+      }
+
+      .method-item:hover .method-step {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 5px rgba(88, 166, 255, 0.2);
+      }
+
+      /* SQL SNIPPET */
+      .sql-container {
+        background: #0d1117;
+        border: 1px solid var(--github-border);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .sql-container:hover {
+        border-color: var(--github-accent);
+        box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.3);
+      }
+
+      .sql-header {
+        background: var(--github-card);
+        padding: 12px 20px;
+        border-bottom: 1px solid var(--github-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .sql-title {
+        font-size: 0.9rem;
+        color: #8b949e;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .sql-snippet {
+        padding: 20px;
+        font-family: "JetBrains Mono", "Courier New", monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        overflow-x: auto;
+      }
+
+      .sql-keyword {
+        color: #ff7b72;
+      }
+
+      .sql-function {
+        color: #d2a8ff;
+      }
+
+      .sql-string {
+        color: #a5d6ff;
+      }
+
+      .sql-comment {
+        color: #8b949e;
+      }
+
+      /* TECH STACK */
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .tech-card {
+        background: rgba(22, 27, 34, 0.7);
+        border: 1px solid var(--github-border);
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .tech-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--github-accent);
+        box-shadow: 0 10px 20px rgba(88, 166, 255, 0.1);
+      }
+
+      .tech-icon {
+        font-size: 2rem;
+        color: var(--github-accent);
+        margin-bottom: 12px;
+        transition: all 0.3s ease;
+      }
+
+      .tech-card:hover .tech-icon {
+        transform: scale(1.2);
+        color: var(--github-purple);
+      }
+
+      .tech-name {
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: var(--github-text);
+      }
+
+      .tech-detail {
+        font-size: 0.85rem;
+        color: #8b949e;
+      }
+
+      /* FOOTER */
+      .project-footer {
+        background: var(--github-card);
+        border: 1px solid var(--github-border);
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
+        margin-top: 24px;
+        transition: all 0.3s ease;
+      }
+
+      .project-footer:hover {
+        border-color: var(--github-accent);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer-link {
+        color: var(--github-accent);
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 1px solid rgba(88, 166, 255, 0.3);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .footer-link:hover {
+        background: rgba(88, 166, 255, 0.1);
+        transform: translateY(-2px);
+        text-decoration: none;
+        border-color: var(--github-accent);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        body {
+          padding: 12px;
+        }
+
+        .container {
+          padding: 0;
+        }
+
+        .project-header,
+        .data-section {
+          padding: 20px;
+          border-radius: 8px;
+        }
+
+        .project-title {
+          font-size: 1.5rem;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .project-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .data-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .tech-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-links {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-link {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .project-title {
+          font-size: 1.3rem;
+        }
+
+        .section-title {
+          font-size: 1.2rem;
+        }
+
+        .tech-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .data-value {
+          font-size: 1.5rem;
+        }
+
+        .metric-badge {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <div class="project-header">
+        <h1 class="project-title">
+          <i class="fas fa-chart-line"></i>
+          Customer Shopping Behavior Analysis
+        </h1>
+        <p class="project-description">
+          Analysis of 3,900 retail transactions to identify customer purchase
+          patterns, revenue drivers, and actionable insights for business
+          optimization.
+        </p>
+        <div class="project-meta">
+          <div class="meta-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Completed: November 2024</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-clock"></i>
+            <span>Duration: 4 weeks</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-database"></i>
+            <span>3,900 transactions</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-code"></i>
+            <span>Python, SQL, Power BI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DATA OVERVIEW -->
+      <div class="data-section">
+        <h2 class="section-title">
+          <i class="fas fa-database"></i>
+          Dataset Overview
+        </h2>
+        <div class="data-grid">
+          <div class="data-card">
+            <div class="data-label">
+              <i class="fas fa-shopping-cart"></i>
+              Total Transactions
+            </div>
+            <div class="data-value">3,900</div>
+            <div class="data-detail">Retail purchases across categories</div>
+          </div>
+          <div class="data-card">
+            <div class="data-label">
+              <i class="fas fa-check-circle"></i>
+              Data Quality
+            </div>
+            <div class="data-value">99.5%</div>
+            <div class="data-detail">37 missing values handled</div>
+          </div>
+          <div class="data-card">
+            <div class="data-label">
+              <i class="fas fa-users"></i>
+              Customer Segments
+            </div>
+            <div class="data-value">3</div>
+            <div class="data-detail">New, Returning, Loyal</div>
+          </div>
+          <div class="data-card">
+            <div class="data-label">
+              <i class="fas fa-calendar"></i>
+              Time Period
+            </div>
+            <div class="data-value">Multi-seasonal</div>
+            <div class="data-detail">Spring to Winter data</div>
+          </div>
+        </div>
+        <p style="color: #8b949e; font-size: 0.95rem; margin-top: 16px">
+          <i class="fas fa-info-circle"></i> Analyzed 18 variables including
+          demographics, transaction details, product attributes, and customer
+          feedback.
+        </p>
+      </div>
+
+      <!-- KEY FINDINGS -->
+      <div class="data-section">
+        <h2 class="section-title">
+          <i class="fas fa-search"></i>
+          Key Findings
+        </h2>
+
+        <div class="finding-card">
+          <div class="finding-title">
+            <i class="fas fa-chart-pie"></i>
+            Revenue Concentration
+          </div>
+          <div class="finding-detail">
+            Electronics category generates 28% of total revenue. Males aged
+            25-34 spend 32% more than the average customer.
+          </div>
+          <div class="finding-metrics">
+            <span class="metric-badge">
+              <i class="fas fa-percentage"></i>
+              28% Revenue Share
+            </span>
+            <span class="metric-badge">
+              <i class="fas fa-arrow-up"></i>
+              +32% Spend Premium
+            </span>
+          </div>
+        </div>
+
+        <div class="finding-card">
+          <div class="finding-title">
+            <i class="fas fa-user-friends"></i>
+            Customer Loyalty Impact
+          </div>
+          <div class="finding-detail">
+            Top 15% of customers (Loyal segment) contribute 42% of total
+            revenue. Subscription members spend 2.3x more than non-subscribers.
+          </div>
+          <div class="finding-metrics">
+            <span class="metric-badge">
+              <i class="fas fa-users"></i>
+              42% Revenue from Loyal
+            </span>
+            <span class="metric-badge">
+              <i class="fas fa-times"></i>
+              2.3x Subscription Impact
+            </span>
+          </div>
+        </div>
+
+        <div class="finding-card">
+          <div class="finding-title">
+            <i class="fas fa-tags"></i>
+            Discount Strategy Analysis
+          </div>
+          <div class="finding-detail">
+            68% of Accessories category purchases are discount-driven. Customers
+            acquired with heavy discounts have 18% lower repeat purchase rates.
+          </div>
+          <div class="finding-metrics">
+            <span class="metric-badge">
+              <i class="fas fa-percentage"></i>
+              68% Discount Dependency
+            </span>
+            <span class="metric-badge">
+              <i class="fas fa-arrow-down"></i>
+              -18% Repeat Rate
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- METHODOLOGY -->
+      <div class="data-section">
+        <h2 class="section-title">
+          <i class="fas fa-tasks"></i>
+          Methodology
+        </h2>
+        <ul class="method-list">
+          <li class="method-item">
+            <div class="method-step">1</div>
+            <div>
+              <strong>Data Cleaning & Preparation</strong><br />
+              <span style="color: #8b949e; font-size: 0.9rem">
+                Handled 37 missing values, standardized column names
+                (snake_case), validated data integrity using Python (pandas)
+              </span>
+            </div>
+          </li>
+          <li class="method-item">
+            <div class="method-step">2</div>
+            <div>
+              <strong>Exploratory Data Analysis</strong><br />
+              <span style="color: #8b949e; font-size: 0.9rem">
+                Analyzed distributions, correlations, and performed statistical
+                tests using Python (scipy, matplotlib, seaborn)
+              </span>
+            </div>
+          </li>
+          <li class="method-item">
+            <div class="method-step">3</div>
+            <div>
+              <strong>SQL Analysis</strong><br />
+              <span style="color: #8b949e; font-size: 0.9rem">
+                Created customer segments, calculated metrics, and performed
+                cohort analysis using PostgreSQL with CTEs and window functions
+              </span>
+            </div>
+          </li>
+          <li class="method-item">
+            <div class="method-step">4</div>
+            <div>
+              <strong>Dashboard & Reporting</strong><br />
+              <span style="color: #8b949e; font-size: 0.9rem">
+                Built interactive Power BI dashboard with 12 visualizations,
+                created stakeholder presentation with actionable recommendations
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- TECHNICAL IMPLEMENTATION -->
+      <div class="data-section">
+        <h2 class="section-title">
+          <i class="fas fa-code"></i>
+          Technical Implementation
+        </h2>
+
+        <div class="sql-container">
+          <div class="sql-header">
+            <div class="sql-title">
+              <i class="fas fa-database"></i>
+              PostgreSQL - Customer Segmentation Query
+            </div>
+            <div style="color: #8b949e; font-size: 0.85rem">Click to copy</div>
+          </div>
+          <div class="sql-snippet">
+            <span class="sql-comment"
+              >-- Customer segmentation with lifetime value calculation</span
+            ><br />
+            <span class="sql-keyword">WITH</span> customer_segments
+            <span class="sql-keyword">AS</span> (<br />
+            &nbsp;&nbsp;<span class="sql-keyword">SELECT</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;customer_id,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">COUNT</span>(*)
+            <span class="sql-keyword">AS</span> transaction_count,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-function">SUM</span
+            >(purchase_amount)
+            <span class="sql-keyword">AS</span> total_spend,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">CASE</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword"
+              >WHEN</span
+            >
+            <span class="sql-function">COUNT</span>(*) = 1
+            <span class="sql-keyword">THEN</span>
+            <span class="sql-string">'New'</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword"
+              >WHEN</span
+            >
+            <span class="sql-function">COUNT</span>(*)
+            <span class="sql-keyword">BETWEEN</span> 2
+            <span class="sql-keyword">AND</span> 5
+            <span class="sql-keyword">THEN</span>
+            <span class="sql-string">'Returning'</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword"
+              >ELSE</span
+            >
+            <span class="sql-string">'Loyal'</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">END</span>
+            <span class="sql-keyword">AS</span> customer_segment<br />
+            &nbsp;&nbsp;<span class="sql-keyword">FROM</span> transactions<br />
+            &nbsp;&nbsp;<span class="sql-keyword">GROUP BY</span>
+            customer_id<br />
+            )<br />
+            <span class="sql-keyword">SELECT</span><br />
+            &nbsp;&nbsp;customer_segment,<br />
+            &nbsp;&nbsp;<span class="sql-function">COUNT</span>(*)
+            <span class="sql-keyword">AS</span> customer_count,<br />
+            &nbsp;&nbsp;<span class="sql-function">ROUND</span>(<span
+              class="sql-function"
+              >AVG</span
+            >(total_spend), 2)
+            <span class="sql-keyword">AS</span> avg_lifetime_value,<br />
+            &nbsp;&nbsp;<span class="sql-function">ROUND</span>(<span
+              class="sql-function"
+              >SUM</span
+            >(total_spend), 2)
+            <span class="sql-keyword">AS</span> segment_revenue<br />
+            <span class="sql-keyword">FROM</span> customer_segments<br />
+            <span class="sql-keyword">GROUP BY</span> customer_segment<br />
+            <span class="sql-keyword">ORDER BY</span> segment_revenue
+            <span class="sql-keyword">DESC</span>;
+          </div>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-python"></i>
+            </div>
+            <div class="tech-name">Python</div>
+            <div class="tech-detail">pandas, matplotlib, scipy</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="tech-name">PostgreSQL</div>
+            <div class="tech-detail">CTEs, window functions</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="tech-name">Power BI</div>
+            <div class="tech-detail">DAX, interactive dashboards</div>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-git-alt"></i>
+            </div>
+            <div class="tech-name">Git</div>
+            <div class="tech-detail">Version control</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="project-footer">
+        <p style="color: #8b949e; margin-bottom: 8px">
+          <i class="fas fa-code-branch"></i>
+          Portfolio Project - Customer Behavior Analysis
+        </p>
+        <p style="color: #8b949e; font-size: 0.9rem">
+          3,900 transactions analyzed • 4-week project • Python • SQL • Power BI
+        </p>
+        <div class="footer-links">
+          <a href="#" class="footer-link">
+            <i class="fab fa-github"></i>
+            View Source Code
+          </a>
+          <a href="#" class="footer-link">
+            <i class="fas fa-file-pdf"></i>
+            Download Full Report
+          </a>
+          <a href="#" class="footer-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Portfolio
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Enhanced hover effects and animations
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add staggered animation to cards
+        const cards = document.querySelectorAll(
+          ".data-card, .finding-card, .tech-card"
+        );
+        cards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+
+          setTimeout(() => {
+            card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 100);
+        });
+
+        // Copy SQL code on click
+        const sqlHeader = document.querySelector(".sql-header div:last-child");
+        const sqlSnippet = document.querySelector(".sql-snippet");
+
+        sqlHeader.addEventListener("click", function () {
+          const text = sqlSnippet.textContent;
+          navigator.clipboard.writeText(text).then(() => {
+            const originalText = sqlHeader.textContent;
+            sqlHeader.textContent = "✓ Copied!";
+            sqlHeader.style.color = "#238636";
+
+            setTimeout(() => {
+              sqlHeader.textContent = originalText;
+              sqlHeader.style.color = "#8b949e";
+            }, 2000);
+          });
+        });
+
+        // Add ripple effect to clickable elements
+        const clickableElements = document.querySelectorAll(
+          ".footer-link, .metric-badge"
+        );
+        clickableElements.forEach((element) => {
+          element.addEventListener("click", function (e) {
+            const ripple = document.createElement("span");
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(88, 166, 255, 0.3);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        pointer-events: none;
+                    `;
+
+            this.style.position = "relative";
+            this.style.overflow = "hidden";
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+              ripple.remove();
+            }, 600);
+          });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement("style");
+        style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+        document.head.appendChild(style);
+      });
+    </script>
+  </body>
+</html>
