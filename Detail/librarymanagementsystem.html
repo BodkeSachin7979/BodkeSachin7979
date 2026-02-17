@@ -1,0 +1,1843 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management System | SQL Project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* ===== PROFESSIONAL DATA ANALYST TEMPLATE ===== */
+      :root {
+        /* Modern Data Analytics Color Palette */
+        --primary-dark: #0a1929;
+        --primary: #1e3a5f;
+        --primary-light: #2b4b7c;
+        --accent-blue: #3b82f6;
+        --accent-purple: #8b5cf6;
+        --accent-green: #10b981;
+        --accent-orange: #f97316;
+        --accent-red: #ef4444;
+        --neutral-50: #f8fafc;
+        --neutral-100: #f1f5f9;
+        --neutral-200: #e2e8f0;
+        --neutral-300: #cbd5e1;
+        --neutral-400: #94a3b8;
+        --neutral-500: #64748b;
+        --neutral-600: #475569;
+        --neutral-700: #334155;
+        --neutral-800: #1e293b;
+        --neutral-900: #0f172a;
+
+        /* Semantic Colors */
+        --success: #10b981;
+        --warning: #f97316;
+        --danger: #ef4444;
+        --info: #3b82f6;
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, #1e3a5f, #2b4b7c, #3b82f6);
+        --gradient-accent: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+        --gradient-success: linear-gradient(135deg, #10b981, #34d399);
+        --gradient-warning: linear-gradient(135deg, #f97316, #fbbf24);
+
+        /* Shadows */
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+        --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+        /* Spacing */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+
+        /* Border Radius */
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+        --radius-xl: 16px;
+        --radius-full: 9999px;
+      }
+
+      /* ===== RESET & BASE STYLES ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        background: var(--neutral-900);
+        color: var(--neutral-100);
+        line-height: 1.6;
+        padding: var(--space-md);
+        min-height: 100vh;
+      }
+
+      /* ===== CONTAINER ===== */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* ===== PROJECT HEADER ===== */
+      .project-header {
+        background: var(--neutral-800);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-lg);
+        padding: var(--space-xl);
+        margin-bottom: var(--space-lg);
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .project-header:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .project-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-primary);
+      }
+
+      .project-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: var(--space-sm);
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .project-subtitle {
+        color: var(--neutral-400);
+        font-size: 1.1rem;
+        margin-bottom: var(--space-md);
+        max-width: 800px;
+      }
+
+      /* ===== PROJECT METRICS ===== */
+      .project-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-md);
+        margin-top: var(--space-lg);
+      }
+
+      .metric-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-md);
+        padding: var(--space-md);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        transition: all 0.3s ease;
+      }
+
+      .metric-card:hover {
+        background: rgba(59, 130, 246, 0.1);
+        border-color: var(--accent-blue);
+        transform: translateY(-2px);
+      }
+
+      .metric-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-primary);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .metric-content {
+        flex: 1;
+      }
+
+      .metric-label {
+        color: var(--neutral-400);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .metric-value {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--neutral-100);
+      }
+
+      /* ===== SECTIONS ===== */
+      .section {
+        background: var(--neutral-800);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-lg);
+        padding: var(--space-xl);
+        margin-bottom: var(--space-lg);
+        transition: all 0.3s ease;
+      }
+
+      .section:hover {
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-lg);
+        padding-bottom: var(--space-sm);
+        border-bottom: 2px solid var(--neutral-700);
+      }
+
+      .section-header i {
+        font-size: 1.8rem;
+        color: var(--accent-blue);
+        background: rgba(59, 130, 246, 0.1);
+        padding: var(--space-sm);
+        border-radius: var(--radius-md);
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--neutral-100);
+      }
+
+      .section-subtitle {
+        color: var(--neutral-400);
+        margin-left: auto;
+      }
+
+      /* ===== DATA CARDS ===== */
+      .data-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-md);
+        margin-bottom: var(--space-md);
+      }
+
+      .data-card {
+        background: var(--neutral-900);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-md);
+        padding: var(--space-lg);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .data-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--gradient-primary);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .data-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-blue);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .data-card:hover::after {
+        opacity: 1;
+      }
+
+      .data-card-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-sm);
+      }
+
+      .data-card-header i {
+        font-size: 2rem;
+        color: var(--accent-blue);
+      }
+
+      .data-card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--neutral-200);
+      }
+
+      .data-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: var(--space-sm) 0;
+      }
+
+      .data-desc {
+        color: var(--neutral-400);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+      }
+
+      /* ===== STATISTICS TABLE ===== */
+      .stats-container {
+        overflow-x: auto;
+        margin: var(--space-md) 0;
+      }
+
+      .stats-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--neutral-900);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+      }
+
+      .stats-table th {
+        background: var(--gradient-primary);
+        color: white;
+        font-weight: 600;
+        padding: var(--space-sm);
+        text-align: left;
+      }
+
+      .stats-table td {
+        padding: var(--space-sm);
+        border-bottom: 1px solid var(--neutral-700);
+        color: var(--neutral-300);
+      }
+
+      .stats-table tr:hover td {
+        background: rgba(59, 130, 246, 0.1);
+      }
+
+      .stats-table .positive {
+        color: var(--accent-green);
+        font-weight: 600;
+      }
+
+      .stats-table .negative {
+        color: var(--accent-red);
+        font-weight: 600;
+      }
+
+      /* ===== INSIGHTS CARDS ===== */
+      .insights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-md);
+      }
+
+      .insight-card {
+        background: var(--neutral-900);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-md);
+        padding: var(--space-lg);
+        transition: all 0.3s ease;
+      }
+
+      .insight-card:hover {
+        transform: translateX(5px);
+        border-left: 4px solid var(--accent-blue);
+        background: rgba(59, 130, 246, 0.05);
+      }
+
+      .insight-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+      }
+
+      .insight-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--gradient-accent);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .insight-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--neutral-100);
+      }
+
+      .insight-content {
+        color: var(--neutral-400);
+        margin-bottom: var(--space-md);
+        line-height: 1.7;
+      }
+
+      .insight-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+      }
+
+      .badge {
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--radius-full);
+        font-size: 0.85rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .badge-blue {
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--accent-blue);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+      }
+
+      .badge-green {
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--accent-green);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+
+      .badge-orange {
+        background: rgba(249, 115, 22, 0.1);
+        color: var(--accent-orange);
+        border: 1px solid rgba(249, 115, 22, 0.3);
+      }
+
+      .badge-purple {
+        background: rgba(139, 92, 246, 0.1);
+        color: var(--accent-purple);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+      }
+
+      .badge-red {
+        background: rgba(239, 68, 68, 0.1);
+        color: var(--accent-red);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+      }
+
+      /* ===== METHODOLOGY STEPS ===== */
+      .methodology-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-md);
+      }
+
+      .step-card {
+        background: var(--neutral-900);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-md);
+        padding: var(--space-lg);
+        position: relative;
+        counter-increment: step-counter;
+      }
+
+      .step-card::before {
+        content: counter(step-counter);
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 40px;
+        height: 40px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 1.2rem;
+        box-shadow: var(--shadow-md);
+      }
+
+      .step-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--neutral-100);
+        margin-bottom: var(--space-sm);
+        margin-top: var(--space-sm);
+      }
+
+      .step-desc {
+        color: var(--neutral-400);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      /* ===== SQL CODE BLOCK ===== */
+      .code-block {
+        background: var(--neutral-900);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        margin: var(--space-md) 0;
+      }
+
+      .code-header {
+        background: var(--neutral-800);
+        padding: var(--space-sm) var(--space-md);
+        border-bottom: 1px solid var(--neutral-700);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .code-title {
+        color: var(--neutral-300);
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+
+      .code-title i {
+        color: var(--accent-blue);
+      }
+
+      .copy-btn {
+        background: none;
+        border: 1px solid var(--neutral-600);
+        color: var(--neutral-400);
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+      }
+
+      .copy-btn:hover {
+        background: var(--accent-blue);
+        color: white;
+        border-color: var(--accent-blue);
+      }
+
+      pre {
+        margin: 0;
+        padding: var(--space-md);
+        overflow-x: auto;
+        font-family: "Fira Code", "JetBrains Mono", monospace;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: var(--neutral-300);
+      }
+
+      .sql-keyword {
+        color: #ff7b72;
+      }
+      .sql-function {
+        color: #d2a8ff;
+      }
+      .sql-string {
+        color: #a5d6ff;
+      }
+      .sql-comment {
+        color: var(--neutral-500);
+      }
+
+      /* ===== TECH STACK ===== */
+      .tech-stack {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-md);
+        margin-top: var(--space-md);
+      }
+
+      .tech-item {
+        background: var(--neutral-900);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-md);
+        padding: var(--space-md);
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        transition: all 0.3s ease;
+      }
+
+      .tech-item:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent-blue);
+        box-shadow: var(--shadow-md);
+      }
+
+      .tech-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-primary);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .tech-info h4 {
+        color: var(--neutral-100);
+        margin-bottom: 0.25rem;
+      }
+
+      .tech-info p {
+        color: var(--neutral-400);
+        font-size: 0.85rem;
+      }
+
+      /* ===== CHARTS SECTION ===== */
+      .charts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-md);
+      }
+
+      .chart-card {
+        background: var(--neutral-900);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-md);
+        padding: var(--space-md);
+      }
+
+      .chart-placeholder {
+        height: 200px;
+        background: linear-gradient(
+          45deg,
+          var(--neutral-800),
+          var(--neutral-700)
+        );
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--neutral-500);
+        font-size: 3rem;
+        margin-bottom: var(--space-md);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .chart-placeholder::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      /* ===== FOOTER ===== */
+      .project-footer {
+        background: var(--neutral-800);
+        border: 1px solid var(--neutral-700);
+        border-radius: var(--radius-lg);
+        padding: var(--space-xl);
+        margin-top: var(--space-lg);
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-md);
+        margin: var(--space-lg) 0;
+        flex-wrap: wrap;
+      }
+
+      .footer-link {
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .footer-link.primary {
+        background: var(--gradient-primary);
+        color: white;
+      }
+
+      .footer-link.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .footer-link.secondary {
+        background: transparent;
+        border: 1px solid var(--neutral-600);
+        color: var(--neutral-300);
+      }
+
+      .footer-link.secondary:hover {
+        border-color: var(--accent-blue);
+        color: var(--accent-blue);
+        transform: translateY(-2px);
+      }
+
+      /* ===== RESPONSIVE DESIGN ===== */
+      @media (max-width: 1024px) {
+        .container {
+          padding: 0 var(--space-md);
+        }
+        .project-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: var(--space-sm);
+        }
+
+        .section,
+        .project-header,
+        .project-footer {
+          padding: var(--space-lg);
+        }
+
+        .project-title {
+          font-size: 1.8rem;
+        }
+
+        .data-grid,
+        .insights-grid,
+        .methodology-steps {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-links {
+          flex-direction: column;
+        }
+        .footer-link {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .project-title {
+          font-size: 1.5rem;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+        .data-value {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- SECTION 1: PROJECT HEADER -->
+      <header class="project-header">
+        <h1 class="project-title">
+          <i class="fas fa-book"></i>
+          📚 Library Management System (SQL Project)
+        </h1>
+        <div
+          style="
+            display: flex;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            flex-wrap: wrap;
+          "
+        >
+          <span
+            style="
+              background: rgba(59, 130, 246, 0.1);
+              padding: 0.25rem 0.75rem;
+              border-radius: var(--radius-full);
+              font-size: 0.9rem;
+            "
+          >
+            <i class="fas fa-database" style="color: var(--accent-blue)"></i>
+            PostgreSQL
+          </span>
+          <span
+            style="
+              background: rgba(16, 185, 129, 0.1);
+              padding: 0.25rem 0.75rem;
+              border-radius: var(--radius-full);
+              font-size: 0.9rem;
+            "
+          >
+            <i
+              class="fas fa-layer-group"
+              style="color: var(--accent-green)"
+            ></i>
+            Database Design
+          </span>
+          <span
+            style="
+              background: rgba(139, 92, 246, 0.1);
+              padding: 0.25rem 0.75rem;
+              border-radius: var(--radius-full);
+              font-size: 0.9rem;
+            "
+          >
+            <i
+              class="fas fa-code-branch"
+              style="color: var(--accent-purple)"
+            ></i>
+            Advanced SQL
+          </span>
+          <span
+            style="
+              background: rgba(249, 115, 22, 0.1);
+              padding: 0.25rem 0.75rem;
+              border-radius: var(--radius-full);
+              font-size: 0.9rem;
+            "
+          >
+            <i class="fas fa-cogs" style="color: var(--accent-orange)"></i>
+            Stored Procedures
+          </span>
+        </div>
+        <p class="project-subtitle">
+          A complete SQL-based Library Management System showcasing database
+          design, CRUD operations, advanced SQL queries, CTAS, and stored
+          procedures. Designed as an industry-style portfolio project
+          demonstrating real-world database skills.
+        </p>
+
+        <div class="project-metrics">
+          <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-database"></i></div>
+            <div class="metric-content">
+              <div class="metric-label">Database</div>
+              <div class="metric-value">library_db</div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-table"></i></div>
+            <div class="metric-content">
+              <div class="metric-label">Tables</div>
+              <div class="metric-value">6</div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="metric-content">
+              <div class="metric-label">Stored Procedures</div>
+              <div class="metric-value">2+</div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="metric-content">
+              <div class="metric-label">Difficulty</div>
+              <div class="metric-value">Intermediate</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- SECTION 2: EXECUTIVE SUMMARY -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-bullseye"></i>
+          <h2 class="section-title">1. Executive Summary</h2>
+          <span class="section-subtitle">Project Overview</span>
+        </div>
+
+        <div class="insights-grid">
+          <div class="insight-card">
+            <div class="insight-header">
+              <div class="insight-icon"><i class="fas fa-database"></i></div>
+              <h3 class="insight-title">Database Design</h3>
+            </div>
+            <p class="insight-content">
+              Complete relational database schema with 6 interconnected tables
+              including branch, employees, members, books, issued_status, and
+              return_status.
+            </p>
+            <div class="insight-metrics">
+              <span class="badge badge-blue"
+                ><i class="fas fa-check"></i> Normalized Schema</span
+              >
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-header">
+              <div class="insight-icon"><i class="fas fa-cogs"></i></div>
+              <h3 class="insight-title">CRUD Operations</h3>
+            </div>
+            <p class="insight-content">
+              Comprehensive Create, Read, Update, and Delete operations with
+              sample queries for book management, member updates, and record
+              deletion.
+            </p>
+            <div class="insight-metrics">
+              <span class="badge badge-green"
+                ><i class="fas fa-check"></i> Full CRUD</span
+              >
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-header">
+              <div class="insight-icon"><i class="fas fa-chart-bar"></i></div>
+              <h3 class="insight-title">Advanced Features</h3>
+            </div>
+            <p class="insight-content">
+              Implementation of CTAS (Create Table As Select), stored procedures
+              with PL/pgSQL, complex joins, and reporting queries for business
+              intelligence.
+            </p>
+            <div class="insight-metrics">
+              <span class="badge badge-purple"
+                ><i class="fas fa-check"></i> Advanced SQL</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: DATABASE SCHEMA -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-database"></i>
+          <h2 class="section-title">2. Database Schema</h2>
+          <span class="section-subtitle">6 Tables | Relational Design</span>
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+          "
+        >
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h3
+              style="color: var(--accent-blue); margin-bottom: var(--space-md)"
+            >
+              <i class="fas fa-code-branch"></i> branch
+            </h3>
+            <p style="color: var(--neutral-400); font-family: monospace">
+              branch_id VARCHAR(10) PK<br />manager_id VARCHAR(10)<br />branch_address
+              VARCHAR(30)<br />contact_no VARCHAR(15)
+            </p>
+          </div>
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h3
+              style="color: var(--accent-green); margin-bottom: var(--space-md)"
+            >
+              <i class="fas fa-users"></i> employees
+            </h3>
+            <p style="color: var(--neutral-400); font-family: monospace">
+              emp_id VARCHAR(10) PK<br />emp_name VARCHAR(30)<br />position
+              VARCHAR(30)<br />salary DECIMAL(10,2)<br />branch_id VARCHAR(10)
+              FK
+            </p>
+          </div>
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h3
+              style="
+                color: var(--accent-purple);
+                margin-bottom: var(--space-md);
+              "
+            >
+              <i class="fas fa-user"></i> members
+            </h3>
+            <p style="color: var(--neutral-400); font-family: monospace">
+              member_id VARCHAR(10) PK<br />member_name VARCHAR(30)<br />member_address
+              VARCHAR(30)<br />reg_date DATE
+            </p>
+          </div>
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h3
+              style="
+                color: var(--accent-orange);
+                margin-bottom: var(--space-md);
+              "
+            >
+              <i class="fas fa-book"></i> books
+            </h3>
+            <p style="color: var(--neutral-400); font-family: monospace">
+              isbn VARCHAR(50) PK<br />book_title VARCHAR(80)<br />category
+              VARCHAR(30)<br />rental_price DECIMAL(10,2)<br />status
+              VARCHAR(10)<br />author VARCHAR(30)<br />publisher VARCHAR(30)
+            </p>
+          </div>
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h3
+              style="color: var(--accent-blue); margin-bottom: var(--space-md)"
+            >
+              <i class="fas fa-check-circle"></i> issued_status
+            </h3>
+            <p style="color: var(--neutral-400); font-family: monospace">
+              issued_id VARCHAR(10) PK<br />issued_member_id VARCHAR(30) FK<br />issued_book_isbn
+              VARCHAR(50) FK<br />issued_date DATE<br />issued_emp_id
+              VARCHAR(10) FK
+            </p>
+          </div>
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h3
+              style="color: var(--accent-green); margin-bottom: var(--space-md)"
+            >
+              <i class="fas fa-undo-alt"></i> return_status
+            </h3>
+            <p style="color: var(--neutral-400); font-family: monospace">
+              return_id VARCHAR(10) PK<br />issued_id VARCHAR(30)<br />return_date
+              DATE<br />return_book_isbn VARCHAR(50) FK
+            </p>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">
+              <i class="fas fa-database"></i>
+              Complete Database Setup Script
+            </span>
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre>
+<span class="sql-comment">-- Create Database</span>
+<span class="sql-keyword">CREATE DATABASE</span> library_db;
+
+<span class="sql-comment">-- Branch Table</span>
+<span class="sql-keyword">CREATE TABLE</span> branch (
+    branch_id <span class="sql-keyword">VARCHAR</span>(10) <span class="sql-keyword">PRIMARY KEY</span>,
+    manager_id <span class="sql-keyword">VARCHAR</span>(10),
+    branch_address <span class="sql-keyword">VARCHAR</span>(30),
+    contact_no <span class="sql-keyword">VARCHAR</span>(15)
+);
+
+<span class="sql-comment">-- Employees Table</span>
+<span class="sql-keyword">CREATE TABLE</span> employees (
+    emp_id <span class="sql-keyword">VARCHAR</span>(10) <span class="sql-keyword">PRIMARY KEY</span>,
+    emp_name <span class="sql-keyword">VARCHAR</span>(30),
+    position <span class="sql-keyword">VARCHAR</span>(30),
+    salary <span class="sql-keyword">DECIMAL</span>(10,2),
+    branch_id <span class="sql-keyword">VARCHAR</span>(10),
+    <span class="sql-keyword">FOREIGN KEY</span> (branch_id) <span class="sql-keyword">REFERENCES</span> branch(branch_id)
+);
+
+<span class="sql-comment">-- Members Table</span>
+<span class="sql-keyword">CREATE TABLE</span> members (
+    member_id <span class="sql-keyword">VARCHAR</span>(10) <span class="sql-keyword">PRIMARY KEY</span>,
+    member_name <span class="sql-keyword">VARCHAR</span>(30),
+    member_address <span class="sql-keyword">VARCHAR</span>(30),
+    reg_date <span class="sql-keyword">DATE</span>
+);
+
+<span class="sql-comment">-- Books Table</span>
+<span class="sql-keyword">CREATE TABLE</span> books (
+    isbn <span class="sql-keyword">VARCHAR</span>(50) <span class="sql-keyword">PRIMARY KEY</span>,
+    book_title <span class="sql-keyword">VARCHAR</span>(80),
+    category <span class="sql-keyword">VARCHAR</span>(30),
+    rental_price <span class="sql-keyword">DECIMAL</span>(10,2),
+    status <span class="sql-keyword">VARCHAR</span>(10),
+    author <span class="sql-keyword">VARCHAR</span>(30),
+    publisher <span class="sql-keyword">VARCHAR</span>(30)
+);
+
+<span class="sql-comment">-- Issue Status</span>
+<span class="sql-keyword">CREATE TABLE</span> issued_status (
+    issued_id <span class="sql-keyword">VARCHAR</span>(10) <span class="sql-keyword">PRIMARY KEY</span>,
+    issued_member_id <span class="sql-keyword">VARCHAR</span>(30),
+    issued_book_isbn <span class="sql-keyword">VARCHAR</span>(50),
+    issued_date <span class="sql-keyword">DATE</span>,
+    issued_emp_id <span class="sql-keyword">VARCHAR</span>(10),
+    <span class="sql-keyword">FOREIGN KEY</span> (issued_member_id) <span class="sql-keyword">REFERENCES</span> members(member_id),
+    <span class="sql-keyword">FOREIGN KEY</span> (issued_emp_id) <span class="sql-keyword">REFERENCES</span> employees(emp_id),
+    <span class="sql-keyword">FOREIGN KEY</span> (issued_book_isbn) <span class="sql-keyword">REFERENCES</span> books(isbn)
+);
+
+<span class="sql-comment">-- Return Status</span>
+<span class="sql-keyword">CREATE TABLE</span> return_status (
+    return_id <span class="sql-keyword">VARCHAR</span>(10) <span class="sql-keyword">PRIMARY KEY</span>,
+    issued_id <span class="sql-keyword">VARCHAR</span>(30),
+    return_date <span class="sql-keyword">DATE</span>,
+    return_book_isbn <span class="sql-keyword">VARCHAR</span>(50),
+    <span class="sql-keyword">FOREIGN KEY</span> (return_book_isbn) <span class="sql-keyword">REFERENCES</span> books(isbn)
+);</pre>
+        </div>
+      </section>
+
+      <!-- SECTION 4: CRUD OPERATIONS -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-edit"></i>
+          <h2 class="section-title">3. CRUD Operations</h2>
+          <span class="section-subtitle">Create, Read, Update, Delete</span>
+        </div>
+
+        <div class="insights-grid">
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-title">
+                <i class="fas fa-plus-circle"></i>
+                ➤ Insert a New Book
+              </span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre>
+<span class="sql-keyword">INSERT INTO</span> books 
+<span class="sql-keyword">VALUES</span> (<span class="sql-string">'978-1-60129-456-2'</span>,<span class="sql-string">'To Kill a Mockingbird'</span>,<span class="sql-string">'Classic'</span>,6.00,<span class="sql-string">'yes'</span>,<span class="sql-string">'Harper Lee'</span>,<span class="sql-string">'J.B. Lippincott & Co.'</span>);</pre>
+          </div>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-title">
+                <i class="fas fa-pen"></i>
+                ➤ Update Member Address
+              </span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre>
+<span class="sql-keyword">UPDATE</span> members 
+<span class="sql-keyword">SET</span> member_address = <span class="sql-string">'125 Oak St'</span>
+<span class="sql-keyword">WHERE</span> member_id = <span class="sql-string">'C103'</span>;</pre>
+          </div>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-title">
+                <i class="fas fa-trash"></i>
+                ➤ Delete Issued Record
+              </span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre>
+<span class="sql-keyword">DELETE FROM</span> issued_status
+<span class="sql-keyword">WHERE</span> issued_id = <span class="sql-string">'IS121'</span>;</pre>
+          </div>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-title">
+                <i class="fas fa-search"></i>
+                ➤ Books Issued by Employee
+              </span>
+              <button class="copy-btn" onclick="copyCode(this)">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+            <pre>
+<span class="sql-keyword">SELECT</span> * <span class="sql-keyword">FROM</span> issued_status <span class="sql-keyword">WHERE</span> issued_emp_id = <span class="sql-string">'E101'</span>;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: ANALYSIS QUERIES -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-chart-line"></i>
+          <h2 class="section-title">4. Analysis Queries</h2>
+          <span class="section-subtitle">Advanced SQL Analytics</span>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">
+              <i class="fas fa-users"></i>
+              ➤ Members With More Than One Issue
+            </span>
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre>
+<span class="sql-keyword">SELECT</span> issued_member_id, <span class="sql-function">COUNT</span>(*)
+<span class="sql-keyword">FROM</span> issued_status
+<span class="sql-keyword">GROUP BY</span> 1
+<span class="sql-keyword">HAVING</span> <span class="sql-function">COUNT</span>(*) > 1;</pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">
+              <i class="fas fa-dollar-sign"></i>
+              ➤ Total Rental Income by Category
+            </span>
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre>
+<span class="sql-keyword">SELECT</span> b.category, <span class="sql-function">SUM</span>(b.rental_price)
+<span class="sql-keyword">FROM</span> issued_status ist
+<span class="sql-keyword">JOIN</span> books b <span class="sql-keyword">ON</span> b.isbn = ist.issued_book_isbn
+<span class="sql-keyword">GROUP BY</span> 1;</pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">
+              <i class="fas fa-clock"></i>
+              ➤ Books Not Yet Returned
+            </span>
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre>
+<span class="sql-keyword">SELECT</span> *
+<span class="sql-keyword">FROM</span> issued_status ist
+<span class="sql-keyword">LEFT JOIN</span> return_status rs <span class="sql-keyword">ON</span> rs.issued_id = ist.issued_id
+<span class="sql-keyword">WHERE</span> rs.return_id <span class="sql-keyword">IS NULL</span>;</pre>
+        </div>
+      </section>
+
+      <!-- SECTION 6: CTAS EXAMPLES -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-table"></i>
+          <h2 class="section-title">5. CTAS Examples</h2>
+          <span class="section-subtitle">Create Table As Select</span>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">
+              <i class="fas fa-chart-bar"></i>
+              ➤ Books Issue Count Table
+            </span>
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre>
+<span class="sql-keyword">CREATE TABLE</span> book_issued_cnt <span class="sql-keyword">AS</span>
+<span class="sql-keyword">SELECT</span> b.isbn, b.book_title, <span class="sql-function">COUNT</span>(ist.issued_id) <span class="sql-keyword">AS</span> issue_count
+<span class="sql-keyword">FROM</span> issued_status ist
+<span class="sql-keyword">JOIN</span> books b <span class="sql-keyword">ON</span> ist.issued_book_isbn = b.isbn
+<span class="sql-keyword">GROUP BY</span> 1,2;</pre>
+        </div>
+
+        <div
+          style="
+            margin-top: var(--space-md);
+            background: var(--neutral-900);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+          "
+        >
+          <p style="color: var(--neutral-300)">
+            <i class="fas fa-info-circle" style="color: var(--accent-blue)"></i>
+            This creates a summary table for quick reporting on book popularity
+            and usage patterns.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 7: STORED PROCEDURES -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-cogs"></i>
+          <h2 class="section-title">6. Stored Procedures</h2>
+          <span class="section-subtitle">PL/pgSQL Automation</span>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">
+              <i class="fas fa-undo-alt"></i>
+              ➤ Procedure: Mark Book Returned
+            </span>
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre>
+<span class="sql-keyword">CREATE OR REPLACE PROCEDURE</span> add_return_records(
+    p_return_id <span class="sql-keyword">VARCHAR</span>(10), 
+    p_issued_id <span class="sql-keyword">VARCHAR</span>(10), 
+    p_book_quality <span class="sql-keyword">VARCHAR</span>(10)
+)
+<span class="sql-keyword">LANGUAGE plpgsql AS</span> $$
+<span class="sql-keyword">DECLARE</span>
+    v_isbn <span class="sql-keyword">VARCHAR</span>(50);
+<span class="sql-keyword">BEGIN</span>
+    <span class="sql-keyword">INSERT INTO</span> return_status(return_id, issued_id, return_date, book_quality)
+    <span class="sql-keyword">VALUES</span> (p_return_id, p_issued_id, <span class="sql-function">CURRENT_DATE</span>, p_book_quality);
+
+    <span class="sql-keyword">SELECT</span> issued_book_isbn <span class="sql-keyword">INTO</span> v_isbn
+    <span class="sql-keyword">FROM</span> issued_status
+    <span class="sql-keyword">WHERE</span> issued_id = p_issued_id;
+
+    <span class="sql-keyword">UPDATE</span> books <span class="sql-keyword">SET</span> status = <span class="sql-string">'yes'</span>
+    <span class="sql-keyword">WHERE</span> isbn = v_isbn;
+
+    <span class="sql-function">RAISE NOTICE</span> <span class="sql-string">'Book returned: %'</span>, v_isbn;
+<span class="sql-keyword">END</span>;
+$$;</pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">
+              <i class="fas fa-check-circle"></i>
+              ➤ Procedure: Issue Book (Check Availability)
+            </span>
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre>
+<span class="sql-keyword">CREATE OR REPLACE PROCEDURE</span> issue_book(
+    p_issued_id <span class="sql-keyword">VARCHAR</span>(10), 
+    p_member <span class="sql-keyword">VARCHAR</span>(30), 
+    p_isbn <span class="sql-keyword">VARCHAR</span>(30), 
+    p_emp <span class="sql-keyword">VARCHAR</span>(10)
+)
+<span class="sql-keyword">LANGUAGE plpgsql AS</span> $$
+<span class="sql-keyword">DECLARE</span> 
+    v_status <span class="sql-keyword">VARCHAR</span>(10);
+<span class="sql-keyword">BEGIN</span>
+    <span class="sql-keyword">SELECT</span> status <span class="sql-keyword">INTO</span> v_status <span class="sql-keyword">FROM</span> books <span class="sql-keyword">WHERE</span> isbn = p_isbn;
+
+    <span class="sql-keyword">IF</span> v_status = <span class="sql-string">'yes'</span> <span class="sql-keyword">THEN</span>
+        <span class="sql-keyword">INSERT INTO</span> issued_status(issued_id, issued_member_id, issued_date, issued_book_isbn, issued_emp_id)
+        <span class="sql-keyword">VALUES</span> (p_issued_id, p_member, <span class="sql-function">CURRENT_DATE</span>, p_isbn, p_emp);
+
+        <span class="sql-keyword">UPDATE</span> books <span class="sql-keyword">SET</span> status = <span class="sql-string">'no'</span> <span class="sql-keyword">WHERE</span> isbn = p_isbn;
+
+        <span class="sql-function">RAISE NOTICE</span> <span class="sql-string">'Book issued: %'</span>, p_isbn;
+    <span class="sql-keyword">ELSE</span>
+        <span class="sql-function">RAISE NOTICE</span> <span class="sql-string">'Book unavailable: %'</span>, p_isbn;
+    <span class="sql-keyword">END IF</span>;
+<span class="sql-keyword">END</span>;
+$$;</pre>
+        </div>
+      </section>
+
+      <!-- SECTION 8: REPORTS & INSIGHTS -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-chart-pie"></i>
+          <h2 class="section-title">7. Reports & Insights</h2>
+          <span class="section-subtitle">Business Intelligence</span>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">
+              <i class="fas fa-building"></i>
+              ➤ Branch Performance Report
+            </span>
+            <button class="copy-btn" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre>
+<span class="sql-keyword">CREATE TABLE</span> branch_reports <span class="sql-keyword">AS</span>
+<span class="sql-keyword">SELECT</span> 
+    b.branch_id,
+    b.manager_id,
+    <span class="sql-function">COUNT</span>(ist.issued_id) <span class="sql-keyword">AS</span> issued_count,
+    <span class="sql-function">COUNT</span>(rs.return_id) <span class="sql-keyword">AS</span> returned_count,
+    <span class="sql-function">SUM</span>(bk.rental_price) <span class="sql-keyword">AS</span> revenue
+<span class="sql-keyword">FROM</span> issued_status ist
+<span class="sql-keyword">JOIN</span> employees e <span class="sql-keyword">ON</span> e.emp_id = ist.issued_emp_id
+<span class="sql-keyword">JOIN</span> branch b <span class="sql-keyword">ON</span> e.branch_id = b.branch_id
+<span class="sql-keyword">LEFT JOIN</span> return_status rs <span class="sql-keyword">ON</span> rs.issued_id = ist.issued_id
+<span class="sql-keyword">JOIN</span> books bk <span class="sql-keyword">ON</span> ist.issued_book_isbn = bk.isbn
+<span class="sql-keyword">GROUP BY</span> 1,2;</pre>
+        </div>
+
+        <div
+          style="
+            margin-top: var(--space-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+          "
+        >
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h4
+              style="color: var(--accent-blue); margin-bottom: var(--space-sm)"
+            >
+              Key Insights Generated
+            </h4>
+            <ul style="color: var(--neutral-400)">
+              <li>• Branch-wise revenue tracking</li>
+              <li>• Employee performance metrics</li>
+              <li>• Book popularity analysis</li>
+              <li>• Return rate monitoring</li>
+            </ul>
+          </div>
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h4
+              style="color: var(--accent-green); margin-bottom: var(--space-sm)"
+            >
+              Business Value
+            </h4>
+            <ul style="color: var(--neutral-400)">
+              <li>• Operational efficiency</li>
+              <li>• Inventory management</li>
+              <li>• Revenue optimization</li>
+              <li>• Customer satisfaction</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9: METHODOLOGY -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-tasks"></i>
+          <h2 class="section-title">8. Development Methodology</h2>
+          <span class="section-subtitle">Step-by-Step Approach</span>
+        </div>
+
+        <div class="methodology-steps">
+          <div class="step-card">
+            <h3 class="step-title">1. Requirements Analysis</h3>
+            <p class="step-desc">
+              Identified key entities: branches, employees, members, books,
+              issued records, returns. Defined relationships and business rules.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-title">2. Schema Design</h3>
+            <p class="step-desc">
+              Created normalized relational schema with 6 tables, primary keys,
+              and foreign key constraints for data integrity.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-title">3. CRUD Implementation</h3>
+            <p class="step-desc">
+              Developed comprehensive Create, Read, Update, Delete operations
+              for all tables with sample data population.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <h3 class="step-title">4. Advanced Features</h3>
+            <p class="step-desc">
+              Implemented CTAS for summary tables, stored procedures for
+              automation, and complex analytical queries.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 10: TECHNICAL IMPLEMENTATION -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-code"></i>
+          <h2 class="section-title">9. Technical Implementation</h2>
+          <span class="section-subtitle">Skills Demonstrated</span>
+        </div>
+
+        <!-- Tech Stack -->
+        <h3
+          style="
+            color: var(--neutral-200);
+            margin: var(--space-lg) 0 var(--space-md);
+          "
+        >
+          SQL Expertise Demonstrated
+        </h3>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <div class="tech-icon"><i class="fas fa-database"></i></div>
+            <div class="tech-info">
+              <h4>Relational Modeling</h4>
+              <p>Normalized schema design, relationships, constraints</p>
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><i class="fas fa-code"></i></div>
+            <div class="tech-info">
+              <h4>Advanced SQL</h4>
+              <p>Joins, aggregations, subqueries, CTAS</p>
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><i class="fas fa-cogs"></i></div>
+            <div class="tech-info">
+              <h4>Stored Procedures</h4>
+              <p>PL/pgSQL, automation, business logic</p>
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="tech-info">
+              <h4>Reporting & Analytics</h4>
+              <p>Performance metrics, business insights</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: var(--space-lg);
+            background: var(--gradient-primary);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+          "
+        >
+          <p style="color: white; font-weight: 500">
+            <i class="fas fa-check-circle"></i> Complete end-to-end SQL
+            capability demonstrated: Relational modeling • Clean database design
+            • Professional SQL queries • Reporting & analysis • Automation with
+            stored procedures
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 11: CONCLUSION -->
+      <section class="section">
+        <div class="section-header">
+          <i class="fas fa-flag-checkered"></i>
+          <h2 class="section-title">10. Conclusion</h2>
+          <span class="section-subtitle">Project Summary</span>
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+          "
+        >
+          <div>
+            <p
+              style="color: var(--neutral-300); margin-bottom: var(--space-md)"
+            >
+              This Library Management System project demonstrates full
+              end-to-end SQL capability:
+            </p>
+            <ul style="color: var(--neutral-400)">
+              <li style="margin-bottom: var(--space-sm)">
+                • <strong>Relational modeling</strong> - Complete normalized
+                schema with 6 tables
+              </li>
+              <li style="margin-bottom: var(--space-sm)">
+                • <strong>Clean database design</strong> - Primary/foreign keys,
+                constraints
+              </li>
+              <li style="margin-bottom: var(--space-sm)">
+                • <strong>Professional SQL queries</strong> - Complex joins,
+                aggregations, CTAS
+              </li>
+              <li style="margin-bottom: var(--space-sm)">
+                • <strong>Reporting & analysis</strong> - Business intelligence
+                queries
+              </li>
+              <li>
+                • <strong>Automation</strong> - Stored procedures with PL/pgSQL
+              </li>
+            </ul>
+            <p style="color: var(--neutral-300); margin-top: var(--space-md)">
+              Perfect for showcasing SQL skills in interviews & portfolios.
+            </p>
+          </div>
+          <div
+            style="
+              background: var(--neutral-900);
+              padding: var(--space-lg);
+              border-radius: var(--radius-md);
+            "
+          >
+            <h3
+              style="color: var(--neutral-200); margin-bottom: var(--space-md)"
+            >
+              How to Use
+            </h3>
+            <ol style="color: var(--neutral-400); margin-left: var(--space-lg)">
+              <li style="margin-bottom: var(--space-sm)">Clone the Repo</li>
+              <li style="margin-bottom: var(--space-sm)">Load the SQL files</li>
+              <li style="margin-bottom: var(--space-sm)">
+                Run analysis queries
+              </li>
+              <li>Explore stored procedures</li>
+            </ol>
+            <div
+              style="
+                margin-top: var(--space-md);
+                background: var(--neutral-800);
+                padding: var(--space-sm);
+                border-radius: var(--radius-md);
+                font-family: monospace;
+                font-size: 0.9rem;
+              "
+            >
+              git clone https://github.com/BodkeSachin7979/SQL_DATA_ANALYSIS.git
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 12: PROJECT FOOTER -->
+      <footer class="project-footer">
+        <h3 style="font-size: 1.8rem; margin-bottom: var(--space-sm)">
+          <i class="fas fa-book"></i>
+          Library Management System SQL Project
+        </h3>
+        <p
+          style="
+            color: var(--neutral-400);
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+          "
+        >
+          A comprehensive SQL-based Library Management System showcasing
+          database design, CRUD operations, advanced SQL queries, CTAS, and
+          stored procedures. Industry-style portfolio project.
+        </p>
+
+        <div style="margin-bottom: var(--space-lg)">
+          <span
+            style="
+              background: rgba(59, 130, 246, 0.1);
+              padding: 0.5rem 1rem;
+              border-radius: var(--radius-full);
+              margin: 0 0.5rem;
+            "
+          >
+            <i class="fas fa-star"></i> Star on GitHub
+          </span>
+          <span
+            style="
+              background: rgba(16, 185, 129, 0.1);
+              padding: 0.5rem 1rem;
+              border-radius: var(--radius-full);
+              margin: 0 0.5rem;
+            "
+          >
+            <i class="fas fa-download"></i> Download SQL
+          </span>
+        </div>
+
+        <div class="footer-links">
+          <a
+            href="https://github.com/BodkeSachin7979/SQL_DATA_ANALYSIS/tree/master/3Library_management"
+            class="footer-link primary"
+          >
+            <i class="fab fa-github"></i>
+            View Source Code
+          </a>
+          <a href="#" class="footer-link secondary">
+            <i class="fas fa-database"></i>
+            View Schema
+          </a>
+          <a href="#" class="footer-link secondary">
+            <i class="fas fa-cogs"></i>
+            Stored Procedures
+          </a>
+          <a href="../index.html" class="footer-link secondary">
+            <i class="fas fa-arrow-left"></i>
+            Back to Portfolio
+          </a>
+        </div>
+
+        <div
+          style="
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+          "
+        >
+          <span><i class="fas fa-database"></i> PostgreSQL</span>
+          <span><i class="fas fa-code"></i> Advanced SQL</span>
+          <span><i class="fas fa-cogs"></i> Stored Procedures</span>
+          <span><i class="fas fa-chart-line"></i> Reporting</span>
+        </div>
+
+        <div
+          style="
+            margin-top: var(--space-lg);
+            color: var(--neutral-600);
+            font-size: 0.85rem;
+          "
+        >
+          <i class="fas fa-lightbulb"></i> Perfect for showcasing SQL skills in
+          interviews & portfolios.
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Copy code functionality
+      function copyCode(button) {
+        const codeBlock = button.closest(".code-block");
+        const code = codeBlock.querySelector("pre").textContent;
+
+        navigator.clipboard
+          .writeText(code)
+          .then(() => {
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            button.style.background = "#10b981";
+            button.style.color = "white";
+
+            setTimeout(() => {
+              button.innerHTML = '<i class="fas fa-copy"></i> Copy';
+              button.style.background = "";
+              button.style.color = "";
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy: ", err);
+          });
+      }
+
+      // Intersection Observer for animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px" },
+      );
+
+      document
+        .querySelectorAll(
+          ".data-card, .insight-card, .step-card, .tech-item, .code-block",
+        )
+        .forEach((el, index) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = `all 0.5s ease ${index * 0.1}s`;
+          observer.observe(el);
+        });
+
+      // Smooth scroll for anchor links (if any)
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
