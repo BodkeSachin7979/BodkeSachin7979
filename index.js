@@ -90,18 +90,6 @@ function createFloatingCode() {
   if (!container) return;
 
   const codeLines = [
-    "import pandas as pd",
-    'df = pd.read_csv("data.csv")',
-    "model.fit(X_train, y_train)",
-    "def analyze_data():",
-    "from django.urls import path",
-    "app = FastAPI()",
-    "sns.heatmap(corr)",
-    "plt.show()",
-    "class DataAnalyzer:",
-    "return jsonify(data)",
-    "docker-compose up",
-    'git commit -m "update"',
     "📊 Data Analysis",
     "🗃️ Database",
     "🤖 ML Model",
@@ -280,9 +268,9 @@ function initTypingEffect() {
 
   const roles = [
     "Data Analyst",
-    "Full Stack Developer",
     "ML Enthusiast",
     "Problem Solver",
+    "Full Stack Developer",
   ];
 
   let roleIndex = 0;
